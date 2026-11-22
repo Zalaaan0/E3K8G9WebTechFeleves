@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Városi Labdarúgó Kupa - Nevezés</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="fejlec">
+        <h1>Csapatnevezési Űrlap</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <a href="tabella.html">Tabella</a>
+        <a href="nevezes.html">Csapatnevezés</a>
+        <a href="szabalyok.html">Szabályzat</a>
+    </nav>
+    <div class="tartalom">
+        <h2>Nevezd be csapatodat!</h2>
+        <p>Minden mező kitöltése kötelező a sikeres regisztrációhoz.</p>
+        <form id="nevezesi-urlap" novalidate>
+            <!-- Egysoros szöveges mező -->
+            <div class="urlap-csoport">
+                <label for="csapatnev">Csapat neve:</label>
+                <input type="text" id="csapatnev" name="csapatnev" placeholder="Pl. Vasgyári Sasok">
+                <span class="hiba-uzenet" id="hiba-csapatnev"></span>
+            </div>
+            <div class="urlap-csoport">
+                <label for="kapitany">Csapatkapitány neve:</label>
+                <input type="text" id="kapitany" name="kapitany" placeholder="Teljes név">
+                <span class="hiba-uzenet" id="hiba-kapitany"></span>
+            </div>
+            <div class="urlap-csoport">
+                <label for="alapitva">Csapat alapításának dátuma:</label>
+                <input type="date" id="alapitva" name="alapitva">
+                <span class="hiba-uzenet" id="hiba-alapitva"></span>
+            </div>
+            <div class="urlap-csoport">
+                <label for="mezszin">Elsődleges mezszín kiválasztása:</label>
+                <input type="color" id="mezszin" name="mezszin" value="#2e7d32">
+            </div>
+            <div class="urlap-csoport">
+                <label>Melyik játéknapot preferáljátok?</label>
+                <label class="inline-label"><input type="radio" name="nap" value="szombat"> Szombat délelőtt</label>
+                <label class="inline-label"><input type="radio" name="nap" value="vasarnap"> Vasárnap délután</label>
+                <span class="hiba-uzenet" id="hiba-nap"></span>
+            </div>
+            <div class="urlap-csoport">
+                <label for="jatekosok">Játékoskeret (minimum 6 név felsorolása):</label>
+                <textarea id="jatekosok" name="jatekosok" rows="4" placeholder="Írd ide a játékosok nevét..."></textarea>
+                <span class="hiba-uzenet" id="hiba-jatekosok"></span>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="urlap-csoport">
+                <label class="inline-label">
+                    <input type="checkbox" id="szabalyzat-elfogad" name="szabalyzat">
+                    Elolvastam és elfogadom a <a href="szabalyok.html">versenyszabályzatot</a>.
+                </label>
+                <span class="hiba-uzenet" id="hiba-szabalyzat"></span>
+            </div>
+            <div class="urlap-csoport">
+                <button type="submit">Nevezés elküldése</button>
+                <button type="reset" id="btn-torles" style="background-color: #666;">Mezők törlése</button>
+            </div>
+        </form>
+        <div id="sikeres-nevezes"></div>
+    </div>
+    <div id="lablec">
+        <p>&copy; 2026 Városi Labdarúgó Szövetség</p>
+    </div>
+</body>
+</html>
