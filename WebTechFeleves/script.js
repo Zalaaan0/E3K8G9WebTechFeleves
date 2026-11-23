@@ -9,30 +9,8 @@ $(document).ready(function () {
     $("#btn-tabella-animacio").click(function () {
         $("#bajnoki-tabella").fadeToggle(600);
     });
-    let ujCsapatSorszam = 5;
-    $("#btn-uj-csapat").click(function () {
-        const ujSor = $("<tr></tr>").html(`
-            <td>${ujCsapatSorszam}.</td>
-            <td>Újonc FC #${ujCsapatSorszam}</td>
-            <td>4</td>
-            <td>0</td>
-            <td>0</td>
-            <td>4</td>
-            <td>2 - 15</td>
-            <td>0</td>
-        `);
-        $("#bajnoki-tabella tbody").append(ujSor);
-        ujCsapatSorszam++;
-        $("#extra-info-doboz").html("<p class='kiemelt-szoveg'>Új csapat sikeresen hozzáadva a tabellához!</p>");
-    });
-
-    $("#btn-cim-modosit").click(function () {
-        const cimElem = document.getElementById("tabella-cim"); // Natív JS ID kiválasztás
-        cimElem.textContent = "Frissített Bajnoki Tabella (Élő állás)";
-        cimElem.style.color = "#d32f2f";
-    });
     $("#nevezesi-urlap").submit(function (event) {
-        event.preventDefault(); // Ne küldje el azonnal az űrlapot
+        event.preventDefault(); 
         let vanHiba = false;
         $(".hiba-uzenet").text("");
         $("input, textarea").removeClass("hibas-mezo");
