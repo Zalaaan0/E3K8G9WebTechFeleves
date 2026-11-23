@@ -2,7 +2,7 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Városi Labdarúgó Kupa - Nevezés</title>
+    <title>Nevezés</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js" defer></script>
@@ -22,7 +22,6 @@
         <h2>Nevezd be csapatodat!</h2>
         <p>Minden mező kitöltése kötelező a sikeres regisztrációhoz.</p>
         <form id="nevezesi-urlap" novalidate>
-            <!-- Egysoros szöveges mező -->
             <div class="urlap-csoport">
                 <label for="csapatnev">Csapat neve:</label>
                 <input type="text" id="csapatnev" name="csapatnev" placeholder="Pl. Vasgyári Sasok">
@@ -53,8 +52,6 @@
                 <textarea id="jatekosok" name="jatekosok" rows="4" placeholder="Írd ide a játékosok nevét..."></textarea>
                 <span class="hiba-uzenet" id="hiba-jatekosok"></span>
             </div>
-
-            <!-- Checkbox -->
             <div class="urlap-csoport">
                 <label class="inline-label">
                     <input type="checkbox" id="szabalyzat-elfogad" name="szabalyzat">
