@@ -6,14 +6,14 @@ body {
     padding: 0;
 }
 
-#fejlec {
+#head {
     background-color: #1b5e20;
     color: white;
     padding: 20px;
     text-align: center;
 }
 
-#lablec {
+#foot {
     background-color: #1b5e20;
     color: white;
     text-align: center;
@@ -43,17 +43,17 @@ nav a:hover {
     color: #000;
 }
 
-.tartalom a {
+.main a {
     color: #1b5e20;
     font-weight: bold;
     text-decoration: underline;
 }
 
-.tartalom a:hover {
+.main a:hover {
     color: #d32f2f;
 }
 
-.tartalom {
+.main {
     max-width: 850px;
     margin: 25px auto;
     background-color: #ffffff;
@@ -62,12 +62,12 @@ nav a:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.kiemelt-szoveg {
+.highlighted-text {
     color: #1b5e20;
     font-weight: bold;
 }
 
-.kep-keret {
+.image-frame {
     max-width: 100%;
     height: auto;
     border: 3px solid #2e7d32;
@@ -100,7 +100,7 @@ tr:hover {
     background-color: #dcedc8;
 }
 
-.urlap-csoport {
+.form-group {
     margin-bottom: 15px;
 }
 
@@ -149,12 +149,12 @@ button:hover {
     background-color: #1b5e20;
 }
 
-.hibas-mezo {
+.invalid-field {
     border: 2px solid #d32f2f !important;
     background-color: #ffebee;
 }
 
-.hiba-uzenet {
+.error-message {
     color: #d32f2f;
     font-size: 13px;
     display: block;
