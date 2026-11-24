@@ -1,70 +1,81 @@
 $(document).ready(function () {
-    $("#btn-bekezdes-kiemel").click(function () {
-        $(".tartalom p").css({
+    $("#btn-highlight-paragraphs").click(function () {
+        $(".main p").css({
             "background-color": "#fff9c4",
             "padding": "8px",
             "border-radius": "4px"
         });
     });
-    $("#btn-tabella-animacio").click(function () {
-        $("#bajnoki-tabella").fadeToggle(600);
+
+    $("#btn-table-animation").click(function () {
+        $("#league-table").fadeToggle(600);
     });
-    $("#nevezesi-urlap").submit(function (event) {
-        event.preventDefault(); 
-        let vanHiba = false;
-        $(".hiba-uzenet").text("");
-        $("input, textarea").removeClass("hibas-mezo");
-        const csapatnev = $("#csapatnev").val().trim();
-        if (csapatnev.length < 3) {
-            $("#csapatnev").addClass("hibas-mezo");
-            $("#hiba-csapatnev").text("Hiba: A csapatnévnek legalább 3 karakter hosszúnak kell lennie!");
-            vanHiba = true;
+
+    $("#registration-form").submit(function (event) {
+        event.preventDefault();
+        let hasError = false;
+
+        $(".error-message").text("");
+        $("input, textarea").removeClass("invalid-field");
+
+        const teamName = $("#team-name").val().trim();
+        if (teamName.length < 3) {
+            $("#team-name").addClass("invalid-field");
+            $("#error-team-name").text("Hiba: A csapatnévnek legalább 3 karakter hosszúnak kell lennie!");
+            hasError = true;
         }
-        const kapitany = $("#kapitany").val().trim();
-        if (kapitany === "") {
-            $("#kapitany").addClass("hibas-mezo");
-            $("#hiba-kapitany").text("Hiba: A csapatkapitány nevének megadása kötelező!");
-            vanHiba = true;
+
+        const captain = $("#captain").val().trim();
+        if (captain === "") {
+            $("#captain").addClass("invalid-field");
+            $("#error-captain").text("Hiba: A csapatkapitány nevének megadása kötelező!");
+            hasError = true;
         }
-        const alapitva = $("#alapitva").val();
-        if (alapitva === "") {
-            $("#alapitva").addClass("hibas-mezo");
-            $("#hiba-alapitva").text("Hiba: Kérjük, válaszd ki az alapítás dátumát!");
-            vanHiba = true;
+
+        const founded = $("#founded").val();
+        if (founded === "") {
+            $("#founded").addClass("invalid-field");
+            $("#error-founded").text("Hiba: Kérjük, válaszd ki az alapítás dátumát!");
+            hasError = true;
         }
-        const valasztottNap = $("input[name='nap']:checked").val();
-        if (!valasztottNap) {
-            $("#hiba-nap").text("Hiba: Válassz ki egy preferált játéknapot!");
-            vanHiba = true;
+
+        const selectedDay = $("input[name='day']:checked").val();
+        if (!selectedDay) {
+            $("#error-day").text("Hiba: Válassz ki egy preferált játéknapot!");
+            hasError = true;
         }
-        const jatekosok = $("#jatekosok").val().trim();
-        if (jatekosok.length < 15) {
-            $("#jatekosok").addClass("hibas-mezo");
-            $("#hiba-jatekosok").text("Hiba: Kérjük, sorolj fel legalább 6 játékost (minimum 15 karakter)!");
-            vanHiba = true;
+
+        const players = $("#players").val().trim();
+        if (players.length < 15) {
+            $("#players").addClass("invalid-field");
+            $("#error-players").text("Hiba: Kérjük, sorolj fel legalább 6 játékost (minimum 15 karakter)!");
+            hasError = true;
         }
-        if (!$("#szabalyzat-elfogad").is(":checked")) {
-            $("#hiba-szabalyzat").text("Hiba: A nevezéshez el kell fogadnod a versenyszabályzatot!");
-            vanHiba = true;
+
+        if (!$("#accept-rules").is(":checked")) {
+            $("#error-rules").text("Hiba: A nevezéshez el kell fogadnod a versenyszabályzatot!");
+            hasError = true;
         }
-        if (!vanHiba) {
-            const kivalasztottSzin = $("#mezszin").val();
-            const visszajelzes = $("<div></div>")
+
+        if (!hasError) {
+            const selectedColor = $("#jersey-color").val();
+            const feedback = $("<div></div>")
                 .css({
                     "background-color": "#e8f5e9",
-                    "border": "2px solid " + kivalasztottSzin,
+                    "border": "2px solid " + selectedColor,
                     "padding": "15px",
                     "margin-top": "20px",
                     "border-radius": "6px"
                 })
                 .html(`<h3>Sikeres nevezés!</h3>
-                       <p>A(z) <strong>${csapatnev}</strong> csapat regisztrációját rögzítettük (Kapitány: ${kapitany}).</p>`);
-            $("#sikeres-nevezes").empty().append(visszajelzes).hide().slideDown(500);
+                       <p>A(z) <strong>${teamName}</strong> csapat regisztrációját rögzítettük (Kapitány: ${captain}).</p>`);
+            $("#registration-success").empty().append(feedback).hide().slideDown(500);
         }
     });
-    $("#btn-torles").click(function () {
-        $(".hiba-uzenet").text("");
-        $("input, textarea").removeClass("hibas-mezo");
-        $("#sikeres-nevezes").empty();
+
+    $("#btn-reset").click(function () {
+        $(".error-message").text("");
+        $("input, textarea").removeClass("invalid-field");
+        $("#registration-success").empty();
     });
 });
