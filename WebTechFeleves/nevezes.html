@@ -8,7 +8,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="fejlec">
+    <div id="head">
         <h1>Csapatnevezési Űrlap</h1>
     </div>
 
@@ -18,55 +18,55 @@
         <a href="nevezes.html">Csapatnevezés</a>
         <a href="szabalyok.html">Szabályzat</a>
     </nav>
-    <div class="tartalom">
+    <div class="main">
         <h2>Nevezd be csapatodat!</h2>
         <p>Minden mező kitöltése kötelező a sikeres regisztrációhoz.</p>
-        <form id="nevezesi-urlap" novalidate>
-            <div class="urlap-csoport">
-                <label for="csapatnev">Csapat neve:</label>
-                <input type="text" id="csapatnev" name="csapatnev" placeholder="Pl. Vasgyári Sasok">
-                <span class="hiba-uzenet" id="hiba-csapatnev"></span>
+        <form id="registration-form" novalidate>
+            <div class="form-group">
+                <label for="team-name">Csapat neve:</label>
+                <input type="text" id="team-name" name="team-name" placeholder="Pl. Vasgyári Sasok">
+                <span class="error-message" id="error-team-name"></span>
             </div>
-            <div class="urlap-csoport">
-                <label for="kapitany">Csapatkapitány neve:</label>
-                <input type="text" id="kapitany" name="kapitany" placeholder="Teljes név">
-                <span class="hiba-uzenet" id="hiba-kapitany"></span>
+            <div class="form-group">
+                <label for="captain">Csapatkapitány neve:</label>
+                <input type="text" id="captain" name="captain" placeholder="Teljes név">
+                <span class="error-message" id="error-captain"></span>
             </div>
-            <div class="urlap-csoport">
-                <label for="alapitva">Csapat alapításának dátuma:</label>
-                <input type="date" id="alapitva" name="alapitva">
-                <span class="hiba-uzenet" id="hiba-alapitva"></span>
+            <div class="form-group">
+                <label for="founded">Csapat alapításának dátuma:</label>
+                <input type="date" id="founded" name="founded">
+                <span class="error-message" id="error-founded"></span>
             </div>
-            <div class="urlap-csoport">
-                <label for="mezszin">Elsődleges mezszín kiválasztása:</label>
-                <input type="color" id="mezszin" name="mezszin" value="#2e7d32">
+            <div class="form-group">
+                <label for="jersey-color">Elsődleges mezszín kiválasztása:</label>
+                <input type="color" id="jersey-color" name="jersey-color" value="#2e7d32">
             </div>
-            <div class="urlap-csoport">
+            <div class="form-group">
                 <label>Melyik játéknapot preferáljátok?</label>
-                <label class="inline-label"><input type="radio" name="nap" value="szombat"> Szombat délelőtt</label>
-                <label class="inline-label"><input type="radio" name="nap" value="vasarnap"> Vasárnap délután</label>
-                <span class="hiba-uzenet" id="hiba-nap"></span>
+                <label class="inline-label"><input type="radio" name="day" value="saturday"> Szombat délelőtt</label>
+                <label class="inline-label"><input type="radio" name="day" value="sunday"> Vasárnap délután</label>
+                <span class="error-message" id="error-day"></span>
             </div>
-            <div class="urlap-csoport">
-                <label for="jatekosok">Játékoskeret (minimum 6 név felsorolása):</label>
-                <textarea id="jatekosok" name="jatekosok" rows="4" placeholder="Írd ide a játékosok nevét..."></textarea>
-                <span class="hiba-uzenet" id="hiba-jatekosok"></span>
+            <div class="form-group">
+                <label for="players">Játékoskeret (minimum 6 név felsorolása):</label>
+                <textarea id="players" name="players" rows="4" placeholder="Írd ide a játékosok nevét..."></textarea>
+                <span class="error-message" id="error-players"></span>
             </div>
-            <div class="urlap-csoport">
+            <div class="form-group">
                 <label class="inline-label">
-                    <input type="checkbox" id="szabalyzat-elfogad" name="szabalyzat">
+                    <input type="checkbox" id="accept-rules" name="rules">
                     Elolvastam és elfogadom a <a href="szabalyok.html">versenyszabályzatot</a>.
                 </label>
-                <span class="hiba-uzenet" id="hiba-szabalyzat"></span>
+                <span class="error-message" id="error-rules"></span>
             </div>
-            <div class="urlap-csoport">
+            <div class="form-group">
                 <button type="submit">Nevezés elküldése</button>
-                <button type="reset" id="btn-torles" style="background-color: #666;">Mezők törlése</button>
+                <button type="reset" id="btn-reset" style="background-color: #666;">Mezők törlése</button>
             </div>
         </form>
-        <div id="sikeres-nevezes"></div>
+        <div id="registration-success"></div>
     </div>
-    <div id="lablec">
+    <div id="foot">
         <p>&copy; 2026 Városi Labdarúgó Szövetség</p>
     </div>
 </body>
